@@ -1,0 +1,66 @@
+﻿@using HastaTakip.Models.Entity;
+
+@model List<hastaTb>
+
+@{
+  
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>Hasta ID</th>
+        <th>Hasta Ad</th>
+        <th>Hasta Soyad</th>
+        <th>Hasta Doğum Tarihi</th>
+        <th>Hasta Telefon</th>
+        <th>Hasta Adres</th>
+        <th>Hastalık Fotoğraf</th>
+        <th>Şikayet</th>
+        <th>Teşhis</th>
+        <th>Giriş Tarihi</th>
+        <th>Çıkış Tarihi</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+
+    </tr>
+     
+    <tbody>
+        @foreach (var hst in Model)
+        {
+        <tr>
+
+            <td>@hst.hastaId</td>
+            <td>@hst.hastaAd</td>
+            <td>@hst.hastaSoyad</td>
+            <td>@hst.hastaDogtar</td>
+            <td>@hst.hastaTelefon</td>
+            <td>@hst.hastaAdres</td>
+            <td>@hst.fotografPath</td>
+            <td>@hst.sikayet</td>
+            <td>@hst.teshis</td>
+            <td>@hst.hastaGiris</td>
+            <td>@hst.hastaCikis</td>
+            
+            
+            
+            
+
+
+            <td><a href="/Patients/Sil/@hst.hastaId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Patients/HastaGetir/@hst.hastaId" class="btn btn-success">Düzenle</a></td>
+        </tr>
+
+        }
+
+
+    </tbody>
+
+
+</table>
+
+<a href="/Patients/HastaEkle/" class=" btn btn-primary">Hasta Ekle</a>
+

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "HastaEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    <div>
+        <label>Hasta Adı</label>
+        <input type="text" class=" form-control" name="hastaAd" required="" />
+    </div>
+
+    <div>
+        <label>Hasta Soyadı</label>
+        <input type="text" class=" form-control" name="hastaSoyad" required="" />
+    </div>
+
+    <div>
+        <label>Doğum Tarihi</label>
+        <input type="date" class=" form-control" name="hastaDogtar" required="" />
+    </div>
+
+    <div>
+        <label>Telefon</label>
+        <input type="text" class=" form-control" name="hastaTelefon" required="" />
+    </div>
+
+    <div>
+        <label>Adres</label>
+        <input type="text" class=" form-control" name="hastaAdres" required="" />
+    </div>
+
+    <div>
+        <label>Fotoğraf</label>
+        <input type="file" class=" form-group"  name="fotoId" required="" />
+    </div>
+    <div>
+        <label>Şikayet</label>
+        <input type="text" class=" form-control" name="sikayet" required="" />
+    </div>
+    <div>
+        <label>Teşhis</label>
+        <input type="text" class=" form-control" name="teshis" required="" />
+    </div>
+
+    <div>
+        <label>Hasta Giriş</label>
+        <input type="date" class=" form-control" name="hastaGiris" required="" />
+    </div>
+
+    <div>
+        <label>Hasta Çıkış</label>
+        <input type="date" class=" form-control" name="hastaCikis" required="" />
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info">Hasta Ekle</button>
+    </div>
+
+</form>
+

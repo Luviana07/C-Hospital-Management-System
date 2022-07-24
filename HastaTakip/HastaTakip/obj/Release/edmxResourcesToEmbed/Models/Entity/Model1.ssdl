@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hastatakipdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="doktorTb">
+    <Key>
+      <PropertyRef Name="doktorId" />
+    </Key>
+    <Property Name="doktorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doktorKullanici" Type="varchar" MaxLength="50" />
+    <Property Name="doktorSifre" Type="varchar" MaxLength="50" />
+    <Property Name="doktorAd" Type="varchar" MaxLength="50" />
+    <Property Name="doktorSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="doktorBolum" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="fotoTb">
+    <Key>
+      <PropertyRef Name="fotografId" />
+    </Key>
+    <Property Name="fotografId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fotoPath" Type="varchar(max)" />
+    <Property Name="hastaId" Type="int" />
+  </EntityType>
+  <EntityType Name="hastaTb">
+    <Key>
+      <PropertyRef Name="hastaId" />
+    </Key>
+    <Property Name="hastaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hastaAd" Type="varchar" MaxLength="50" />
+    <Property Name="hastaSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="hastaDogtar" Type="date" />
+    <Property Name="hastaTelefon" Type="char" MaxLength="15" />
+    <Property Name="hastaAdres" Type="varchar(max)" />
+    <Property Name="fotoId" Type="int" />
+    <Property Name="sikayet" Type="varchar" MaxLength="250" />
+    <Property Name="teshis" Type="varchar" MaxLength="150" />
+    <Property Name="hastaGiris" Type="date" />
+    <Property Name="hastaCikis" Type="date" />
+    <Property Name="fotografPath" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="sikayetTb">
+    <Key>
+      <PropertyRef Name="sikayetId" />
+    </Key>
+    <Property Name="sikayetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doktorId" Type="int" />
+    <Property Name="hastaId" Type="int" />
+    <Property Name="sikayet" Type="varchar(max)" />
+    <Property Name="teshis" Type="varchar" MaxLength="250" />
+    <Property Name="girisTarihi" Type="date" />
+    <Property Name="cikisTarihi" Type="date" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_hastaTb_fotoTb">
+    <End Role="fotoTb" Type="Self.fotoTb" Multiplicity="0..1" />
+    <End Role="hastaTb" Type="Self.hastaTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fotoTb">
+        <PropertyRef Name="fotografId" />
+      </Principal>
+      <Dependent Role="hastaTb">
+        <PropertyRef Name="fotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sikayetTb_doktorTb">
+    <End Role="doktorTb" Type="Self.doktorTb" Multiplicity="0..1" />
+    <End Role="sikayetTb" Type="Self.sikayetTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doktorTb">
+        <PropertyRef Name="doktorId" />
+      </Principal>
+      <Dependent Role="sikayetTb">
+        <PropertyRef Name="doktorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sikayetTb_hastaTb">
+    <End Role="hastaTb" Type="Self.hastaTb" Multiplicity="0..1" />
+    <End Role="sikayetTb" Type="Self.sikayetTb" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hastaTb">
+        <PropertyRef Name="hastaId" />
+      </Principal>
+      <Dependent Role="sikayetTb">
+        <PropertyRef Name="hastaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hastatakipdbModelStoreContainer">
+    <EntitySet Name="doktorTb" EntityType="Self.doktorTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fotoTb" EntityType="Self.fotoTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hastaTb" EntityType="Self.hastaTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sikayetTb" EntityType="Self.sikayetTb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_hastaTb_fotoTb" Association="Self.FK_hastaTb_fotoTb">
+      <End Role="fotoTb" EntitySet="fotoTb" />
+      <End Role="hastaTb" EntitySet="hastaTb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sikayetTb_doktorTb" Association="Self.FK_sikayetTb_doktorTb">
+      <End Role="doktorTb" EntitySet="doktorTb" />
+      <End Role="sikayetTb" EntitySet="sikayetTb" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sikayetTb_hastaTb" Association="Self.FK_sikayetTb_hastaTb">
+      <End Role="hastaTb" EntitySet="hastaTb" />
+      <End Role="sikayetTb" EntitySet="sikayetTb" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

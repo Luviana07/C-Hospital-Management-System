@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80105e3f97034c1c835a72fc1acb2937" Name="Diagram1">
+        <EntityTypeShape EntityType="hastatakipdbModel.doktorTb" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hastatakipdbModel.fotoTb" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hastatakipdbModel.hastaTb" Width="1.5" PointX="3.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="hastatakipdbModel.sikayetTb" Width="1.5" PointX="6.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="hastatakipdbModel.sysdiagrams" Width="1.5" PointX="7.375" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="hastatakipdbModel.FK_sikayetTb_doktorTb" ManuallyRouted="false" />
+        <AssociationConnector Association="hastatakipdbModel.FK_hastaTb_fotoTb" ManuallyRouted="false" />
+        <AssociationConnector Association="hastatakipdbModel.FK_sikayetTb_hastaTb" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

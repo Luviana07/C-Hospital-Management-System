@@ -1,0 +1,55 @@
+﻿@model HastaTakip.Models.Entity.hastaTb
+
+@{
+    ViewBag.Title = "HastaGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Düzenle", "Patients", FormMethod.Post))
+{
+
+<div class="form-group">
+
+    @Html.LabelFor(k => k.hastaId)
+    @Html.TextBoxFor(k => k.hastaId, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaAd)
+    @Html.TextBoxFor(k => k.hastaAd, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaSoyad)
+    @Html.TextBoxFor(k => k.hastaSoyad, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaDogtar)
+    @Html.TextBoxFor(k => k.hastaDogtar, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaTelefon)
+    @Html.TextBoxFor(k => k.hastaTelefon, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaAdres)
+    @Html.TextBoxFor(k => k.hastaAdres, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.fotoId)
+    @Html.TextBoxFor(k => k.fotoId, new { @class = "form-group",type="file" })
+
+    @Html.LabelFor(k => k.sikayet)
+    @Html.TextBoxFor(k => k.sikayet, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.teshis)
+    @Html.TextBoxFor(k => k.teshis, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaGiris)
+    @Html.TextBoxFor(k => k.hastaGiris, new { @class = "form-control" })
+
+    @Html.LabelFor(k => k.hastaCikis)
+    @Html.TextBoxFor(k => k.hastaCikis, new { @class = "form-control" })
+
+
+    <div>
+        <div style="margin-top:20px">
+            <button class="btn btn-warning">Düzenle</button>
+            </div>
+        </div>
+
+    </div>
+
+}
